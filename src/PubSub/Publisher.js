@@ -50,11 +50,20 @@ class Publisher extends React.Component {
     
   }
   
-  publish() {
+  publish(e) {
 	  console.log("publishing:"+this.props.topic+" event:"+this.props.event)
 	  var options = {};
 	  if (this.props.options) {
 		  options = eval("("+this.props.options+")")
+		  for (var i in options) {
+			  var item = options[i];
+			  if (item==="___VALUE___") {
+				  var $this = $(e.target);
+				  options[i] = $(e.target).val();
+			  } else if (item["___FUNCTION___"]!==undefined) {
+				  options[i] = this.element[item["___FUNCTION___"]]();
+			  }
+		  }
 	  }
 	  pubSubManager.publish(this.props.topic, options);
   }
@@ -62,7 +71,8 @@ class Publisher extends React.Component {
   render() {
 	  var self = this;
 	  var notFound = false;
-	  var children = React.Children.map(this.props.children, function (c, index) {
+	  self.element = this.props.children._self;
+	  var children = React.Children.map(this.props.children, function (c, index) {		  
 		  var ppp = $.extend({}, c.props);
 		  ppp["on"+self.event] = self.publish;
 		  var ccc = React.DOM[c.type];
@@ -85,7 +95,9 @@ class Publisher extends React.Component {
 	      }
 
 	      if (this.props.event) {
-	    	ppp["on"+this.props.event] = this.publish;
+	    	ppp["on"+this.props.event] = function() {
+	    		this.publish();
+	    	}
 	      } else {
 	    	ppp["onClick"] = this.publish;
 	      }

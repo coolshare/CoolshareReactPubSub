@@ -12,6 +12,7 @@ The key features:
 
  - You can publish topics from both javascript and JSX
  - You can specify any event to trigger the publishing
+ - Macro Key Words allow you to publish with data you specified.
  
 
 Instructions to use:
@@ -70,10 +71,46 @@ Instructions to use:
       *****
       
       When "publish" tag/component contains regular DOM elements such as "div", "a", "button" and "select", the specified 
-      "event" is bound directly to the contained elements but the contained elements are not regular DOm elements (such as
+      "event" is bound directly to the contained elements but the contained elements are not regular DOM elements (such as
       the last "Publish" element above) the specified event will be bound to a "div" element containing the contained elements.
       
+      Macro Key Words:
+      ***************
       
+        1). ___VALUE___ - this key word pointing to the value of the contained element. For example
+           
+	           <Publisher topic="/left/dropdown/bg" event="Change" options="{'bgColor':'___VALUE___'}">
+	           	<select>
+	           		<option value="#ff0000">Red</option>
+	           		<option value="#00ff00">Green</option>
+	           		<option value="#0000ff">Blue</option>
+	           	</select>
+	           </Publisher>
+	           
+	          The example above indicate the "bgColor" in the options will be set to the value of select when a change
+	          event occurs.
+	        
+	    2). ___FUNCTION___ - this key word pointing to the return value of a function of the component where the publisher reside.
+	          For example, 
+	          
+	          class Inside extends Component {
+				  //...
+				  getColor() {
+					  return pubSubManager.getRandomColor();
+				  }
+				  render() {
+					var self = this;
+				    return (				   
+				        ...
+				          <Publisher topic="/inside/function/fg" options="{'color':{'___FUNCTION___':'getColor'}}">
+				              <button>Button in Inside:set text color of subscriber randomly</button>
+				          </Publisher>
+ 						 ...    
+				    );
+				  }
+				}
+        
+              In the example above, the value of "color" in "options" will be assigned with the return value of "getColor".
         
                
   B). subscribe a topic

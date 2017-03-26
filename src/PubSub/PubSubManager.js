@@ -215,6 +215,15 @@ class PubSubManager {
 		this.logger.val(function(_, val){return val + "\n\n\n"+msg; }); 
 		this.logger[0].scrollTop = this.logger[0].scrollHeight;
 	}
+	
+	getRandomColor() {
+	    var letters = '0123456789ABCDEF';
+	    var color = '#';
+	    for (var i = 0; i < 6; i++ ) {
+	        color += letters[Math.floor(Math.random() * 16)];
+	    }
+	    return color;
+	}
 }
 
 const pubSubManager = new PubSubManager()
