@@ -86,7 +86,37 @@ It provides the following functionalities:
 			//...
  	    }
   
-To run the sample code, simply use "npm start" from the package root directory.
-And the result will be shown in the console.
+  C). To run the sample code, you need to 
 
+		1). download it from 
+		
+		    https://github.com/coolshare/CoolshareReactPubSub/archive/master.zip
+		    
+		    and unzip it to, say c:\CoolshareReactPubSub
+		    
+		    
+		2). Prepare required environment
+		
+		    - install node.js
+		    - install required lib by running
+		       cd  c:\CoolshareReactPubSub
+		       npm install
+		       
+		3). Start the server and browser by
+		
+		    npm start
+		         
+		
+		    You should see a browser page is opened at http://localhost:3000
+		    
+		Click each component on the page and the result will be shown in the console.
+		
+		Have fun!
 
+  D). To install it into your React application, you need to 
+  
+     1). npm install coolshare_react_pub_sub --save
+     
+     2). Follow the instructions in A). B). above to use it in your application.
+     
+     

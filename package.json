@@ -1,6 +1,6 @@
 {
-  "name": "coolshare_react_pupsub",
-  "version": "0.1.0",
+  "name": "coolshare_react_pub_sub",
+  "version": "0.1.2",
   "private": false,
   "dependencies": {
     "jquery": "^3.2.1",
