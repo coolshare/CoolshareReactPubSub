@@ -31,11 +31,17 @@ import $ from 'jquery'
 import Sub from './Sub'
 import Pub from './Pub'
 import Topic from './Topic'
+let instance = null;
 
 class CommunicationManager {
 	constructor () {
+		if(!instance){
+            instance = this;
+        }
 		this.topicMap = {};
 		this.handlerMap = {};
+		
+		return instance;
 	}
 	subscribe(topicNameList, options) {
 		options = options || {};
@@ -91,7 +97,7 @@ class CommunicationManager {
 			communicationManager.topicMap[topicName] = new Topic(
 					topicName);
 			
-			console.log("######WARNING######: there is no subscriber on topic '"+topicName+"'");
+			this.log("######WARNING######: there is no subscriber on topic '"+topicName+"'");
 			return;
 		}
 
@@ -160,6 +166,21 @@ class CommunicationManager {
 		var v = pre+new Date().valueOf();
 		console.info("v="+v)
 		return v;
+	}
+	
+	setLog(sel) {
+		this.logger = $(sel);
+		var tt = 0;
+	}
+	
+	log(msg) {
+		console.log(msg);
+		if (this.logger==undefined) {
+			return;
+		}
+		this.logger = $("#log");
+		this.logger.val(function(_, val){return val + "\n\n\n"+msg; }); 
+		this.logger[0].scrollTop = this.logger[0].scrollHeight;
 	}
 }
 

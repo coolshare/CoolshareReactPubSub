@@ -10,13 +10,13 @@ const communicationManager = new CommunicationManager();
 class App extends Component {
   componentWillMount() {
 	  communicationManager.subscribe("/main/button", function(data) {
-		  console.log("Subscriber in main receive topic: /main/button")
+		  communicationManager.log("Subscriber in main receive topic: /main/button")
 	  }) 
 	  communicationManager.subscribe("/left/button", function(data) {
-		  console.log("Subscriber in main receive topic: /left/button")
+		  communicationManager.log("Subscriber in main receive topic: /left/button")
 	  }) 
 	  communicationManager.subscribe("/left/Publish", function(data) {
-		  console.log("Subscriber in main receive topic: /left/Publish")
+		  communicationManager.log("Subscriber in main receive topic: /left/Publish")
 	  }) 
   }
   
@@ -31,7 +31,14 @@ class App extends Component {
           <Left/>
           <Right/>
 
-          <Publisher topic="/main/button"><button>Main</button></Publisher>
+          <br style={{ "clear": "both"}}></br>
+          <div style={{ "width": "400px"}}>
+	          <div>Topic/communitaction info:</div>
+	          <div style={{ "float": "left"}}>
+	          	<textarea style={{ "margin-left": "30px",height: 200, width: 300 }} id="log"></textarea>
+	          </div>
+	      </div>
+          <Publisher topic="/main/button"><button>Button in Main</button></Publisher>
       </div>
      
     );

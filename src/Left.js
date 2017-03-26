@@ -9,11 +9,11 @@ const communicationManager = new CommunicationManager();
 class Left extends Component {
   componentWillMount() {
 	  communicationManager.subscribe("/main/button", function(data) {
-		  console.log("Subscriber in Left receive topic: /main/button and data:"+data)
+		  communicationManager.log("Subscriber in Left receive topic: /main/button and data:"+data)
 	  }) 
 	  communicationManager.subscribe("/right/button", function(data) {
 		  
-		  console.log("Subscriber in Left receive topic: /right/button and data:"+data)
+		  communicationManager.log("Subscriber in Left receive topic: /right/button and data:"+data)
 		  communicationManager.publish("/published/from/right", data);
 	  }) 
   }
