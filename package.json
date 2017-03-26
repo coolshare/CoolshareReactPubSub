@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": false,
   "dependencies": {
+    "jquery": "^3.2.1",
     "react": "^15.4.2",
     "react-dom": "^15.4.2"
   },
@@ -15,19 +16,26 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "description": "pubsub for react by Mark Qian",
+  "description": "A package/service to provide publish/subscribe pattern for communication in React",
   "main": "src/app.js",
   "keywords": [
     "pub",
     "sub",
     "react",
     "qian",
-    "coolshare"
+    "coolshare",
+    "patter",
+    "communication"
   ],
   "author": {
     "name": "Mark Qian",
     "email": "markqian@hotmail.com",
     "url": "http://markqian.com"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/coolshare/CoolshareReactPubSub.git"
+  },
+  "homepage": "https://github.com/cef62/react-pubsub"
 }

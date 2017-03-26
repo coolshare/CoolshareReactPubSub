@@ -1,5 +1,6 @@
 Coolshare Pub/Sub for React
 ===========================
+
 By Mark Qian 3/25/2017 (markqian@hotmail.com)
 Go http://MarkQian.com to see more.
 
@@ -41,8 +42,9 @@ It provides the following functionalities:
                    <option value="b">B</option>
                  </select>
                </Publisher>
-          
-             <Publisher topic="/MyTopic2" event="Change"><MyComponentB/></Publisher>
+          	   <Publisher topic="/left/Publish">
+          	     <MyComponentC/>
+          	   </Publisher>
           </div>  
         );
       }
@@ -50,6 +52,21 @@ It provides the following functionalities:
       where the attribute "options" can container the data you want to pass with the topic.
       The content contained by "options" needs to be in a JSON format which will be evaluated into a javascript object.
       
+      The "event" attribute is optional and the default is "Click".
+      
+      Please also pay attention to the Case of your "event". You should use "MouseOver" instead of "mouseover", "Mouseover" or
+      "mouseOver" and "Change" instead of "change".
+      
+      Note:
+      *****
+      
+      When "publish" tag/component contains regular DOM elements such as "div", "a", "button" and "select", the specified 
+      "event" is bound directly to the contained elements but the contained elements are not regular DOm elements (such as
+      the last "Publish" element above) the specified event will be bound to a "div" element containing the contained elements.
+      
+      
+        
+               
   B). subscribe a topic
   
     To subscribe a topic, you need to do the following:

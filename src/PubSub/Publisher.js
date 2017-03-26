@@ -27,13 +27,14 @@ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
 */
 import React from 'react';
+import $ from 'jquery'
 import CommunicationManager from './CommunicationManager'
 
 const communicationManager = new CommunicationManager();
 class Publisher extends React.Component {
   constructor(props) {
     super(props);
-    this.ppp = {};
+    
     this.publish = this.publish.bind(this);
     if (props.classes) {
     	var cn = [];
@@ -42,11 +43,9 @@ class Publisher extends React.Component {
     	}
     	this.ppp.className = cn.join(" ");
     }
-
+    this.event = "Click";
     if (props.event) {
-    	this.ppp["on"+props.event] = this.publish;
-    } else {
-    	this.ppp["onClick"] = this.publish;
+    	this.event = props.event;
     }
     
   }
@@ -61,9 +60,44 @@ class Publisher extends React.Component {
   }
   
   render() {
-	  return (
-			  <div { ...this.ppp } >{this.props.children}</div>
-	    );
+	  var self = this;
+	  var notFound = false;
+	  var children = React.Children.map(this.props.children, function (c, index) {
+		  var ppp = $.extend({}, c.props);
+		  ppp["on"+self.event] = self.publish;
+		  var ccc = React.DOM[c.type];
+		  if (ccc) {
+			  return ccc(ppp);
+		  } else {
+			  notFound = true;
+			  return c;
+		  }
+		  
+      });
+	  if (notFound) {
+		  var ppp = {};
+		  if (this.props.classes) {
+	    	var cn = [];
+	    	for (var c in this.props.classes) {
+	    		cn.push(c);
+	    	}
+	    	ppp.className = cn.join(" ");
+	      }
+
+	      if (this.props.event) {
+	    	ppp["on"+this.props.event] = this.publish;
+	      } else {
+	    	ppp["onClick"] = this.publish;
+	      }
+		  return <div { ...ppp } >{this.props.children}</div>;
+	  } else {
+		  return (
+				  <div>
+				  {children}
+				  </div>
+		    );
+	  }
+	  
   }
 }
 

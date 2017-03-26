@@ -9,11 +9,11 @@ const communicationManager = new CommunicationManager();
 class Left extends Component {
   componentWillMount() {
 	  communicationManager.subscribe("/main/button", function(data) {
-		  console.log("Got it in left: "+data)
+		  console.log("Subscriber in Left receive topic: /main/button and data:"+data)
 	  }) 
 	  communicationManager.subscribe("/right/button", function(data) {
 		  
-		  console.log("Got it in left: "+data)
+		  console.log("Subscriber in Left receive topic: /right/button and data:"+data)
 		  communicationManager.publish("/published/from/right", data);
 	  }) 
   }
@@ -23,15 +23,16 @@ class Left extends Component {
       <div className="Left">
         
         <p className="App-intro">
-          This is the left pane
+        This is an instance of component "Left"
         </p>
-          <Publisher topic="/left/button"><button>Left</button></Publisher>
-          <Publisher topic="/left/Publish"><a href="#" className="ddd">aaaa</a></Publisher>
+          <Publisher topic="/left/button"><button>Button in Left</button></Publisher>
           <br/>
-          <Publisher topic="/left/Publish" event="Change"><select><option value="a">A</option><option value="b">B</option></select></Publisher>
+          <Publisher topic="/left/Publish" event="MouseOut"><a href="http://google.com" className="ddd" target="blank">Link in Left</a></Publisher>
           <br/>
-          This publisher wraps another component
-          <Publisher topic="/left/Publish" event="Change"><Right/></Publisher>
+          <Publisher topic="/left/Publish" event="Change">A dropdown in Left:<select><option value="a">A</option><option value="b">B</option></select></Publisher>
+          <br/><br/><br/>
+          This publisher wraps another component:
+          <Publisher topic="/left/Publish" event="Click"><Right/></Publisher>
       </div>
      
     );

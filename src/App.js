@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import logo from '../coolshare.gif';
 import './App.css';
 import Left from './Left';
 import Right from './Right';
@@ -10,13 +10,13 @@ const communicationManager = new CommunicationManager();
 class App extends Component {
   componentWillMount() {
 	  communicationManager.subscribe("/main/button", function(data) {
-		  console.log("Got it in main: /main/button")
+		  console.log("Subscriber in main receive topic: /main/button")
 	  }) 
 	  communicationManager.subscribe("/left/button", function(data) {
-		  console.log("Got it in main: /left/button")
+		  console.log("Subscriber in main receive topic: /left/button")
 	  }) 
 	  communicationManager.subscribe("/left/Publish", function(data) {
-		  console.log("Got it in main: /left/Publish")
+		  console.log("Subscriber in main receive topic: /left/Publish")
 	  }) 
   }
   
@@ -25,11 +25,9 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+          <h2>Welcome to Coolshare React Pubsub</h2>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+
           <Left/>
           <Right/>
           <Publisher topic="/main/button"><button>Main</button></Publisher>

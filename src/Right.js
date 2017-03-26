@@ -8,11 +8,11 @@ const communicationManager = new CommunicationManager();
 class Right extends Component {
   componentWillMount() {
 	  communicationManager.subscribe("/main/button", function(data) {
-		  console.log("Got it in right: "+data)
+		  console.log("Subscriber in Left receive topic: /main/button and data:"+data)
 	  })
 	  
 	  communicationManager.subscribe("/published/from/right", function(data) {
-		  console.log("Got it in right: "+JSON.stringify(data))
+		  console.log("Subscriber in Left receive topic: /published/from/right and data:"+JSON.stringify(data))
 	  }) 
   }
   
@@ -20,9 +20,9 @@ class Right extends Component {
     return (
       <div className="Right">
         <p className="App-intro">
-          This is the right pane
+          This is an instance of component "Right"
         </p>
-          <Publisher topic="/right/button" options="{'test':'this is a test'}"><button>Right</button></Publisher>
+          <Publisher topic="/right/button" options="{'test':'this is a test'}"><button>Button in Right</button></Publisher>
       </div>
      
     );
