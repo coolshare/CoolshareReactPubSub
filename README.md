@@ -49,7 +49,7 @@ It provides the following functionalities:
         );
       }
       
-      where the attribute "options" can container the data you want to pass with the topic.
+      where the attribute "options", optional, contains the data you want to pass with the topic.
       The content contained by "options" needs to be in a JSON format which will be evaluated into a javascript object.
       
       The "event" attribute is optional and the default is "Click".
