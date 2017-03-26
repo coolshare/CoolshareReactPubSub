@@ -17,7 +17,7 @@
     "eject": "react-scripts eject"
   },
   "description": "A package/service to provide publish/subscribe pattern for communication in React",
-  "main": "src/app.js",
+  "main": "src/App.js",
   "keywords": [
     "pub",
     "sub",
@@ -37,5 +37,5 @@
     "type": "git",
     "url": "https://github.com/coolshare/CoolshareReactPubSub.git"
   },
-  "homepage": "https://github.com/cef62/react-pubsub"
+  "homepage": "https://coolshare.surge.sh"
 }
