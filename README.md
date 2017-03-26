@@ -99,7 +99,6 @@ Instructions to use:
 					  return pubSubManager.getRandomColor();
 				  }
 				  render() {
-					var self = this;
 				    return (				   
 				        ...
 				          <Publisher topic="/inside/function/fg" options="{'color':{'___FUNCTION___':'getColor'}}">
