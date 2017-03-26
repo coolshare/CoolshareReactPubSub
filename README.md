@@ -6,7 +6,7 @@ Go http://MarkQian.com to see more.
 
 The demo page is available at
 
-	http://coolshare.surge.sh/
+	http://coolshare.surge.sh
 
 This is a pub/sub package for react.
 It provides the following functionalities:
