@@ -91,16 +91,10 @@ class CommunicationManager {
 			communicationManager.topicMap[topicName] = new Topic(
 					topicName);
 			
-			//if (huawei.debug>0 && topicName.indexOf("/debug")<0 && huawei.log) {
-			//	console.debug(huawei.debugInfo.print(0, 0));
-			//}
 			console.log("######WARNING######: there is no subscriber on topic '"+topicName+"'");
 			return;
 		}
-		
-		//if (huawei.debug>0 && topicName.indexOf("/debug")<0  && huawei.log) {
-		//	console.debug(huawei.debugInfo.print(0, 0));
-		//}
+
 		console.log("Publish topic: " + topic.name)
 		options = options || {};
 		

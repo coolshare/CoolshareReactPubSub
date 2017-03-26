@@ -23,8 +23,7 @@ class Right extends Component {
           This is an instance of component "Right"
         </p>
           <Publisher topic="/right/button" options="{'test':'this is a test'}"><button>Button in Right</button></Publisher>
-      </div>
-     
+      </div>     
     );
   }
 }

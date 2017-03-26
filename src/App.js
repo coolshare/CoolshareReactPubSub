@@ -30,6 +30,7 @@ class App extends Component {
 
           <Left/>
           <Right/>
+
           <Publisher topic="/main/button"><button>Main</button></Publisher>
       </div>
      
