@@ -4,21 +4,17 @@ Coolshare Pub/Sub for React
 By Mark Qian 3/2017 (markqian@hotmail.com)
 
 The demo page: http://coolshare.surge.sh
-*************
 
 Description:
-***********
-This is a pub/sub package for React.
+	This is a pub/sub package for React.
 
 The key features:
-****************
 
  - You can publish topics from both javascript and JSX
  - You can specify any event to trigger the publishing
  
 
 Instructions to use:
-********************
 
  A). publish a topic in two ways:
  
