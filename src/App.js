@@ -4,22 +4,24 @@ import './App.css';
 import Left from './Left';
 import Right from './Right';
 import Publisher from './PubSub/Publisher';
-import CommunicationManager from './PubSub/CommunicationManager'
+import PubSubManager from './PubSub/PubSubManager'
 
-const communicationManager = new CommunicationManager();
+const pubSubManager = new PubSubManager();
 class App extends Component {
   componentWillMount() {
-	  communicationManager.subscribe("/main/button", function(data) {
-		  communicationManager.log("Subscriber in main receive topic: /main/button")
+	  pubSubManager.subscribe("/main/button", function(data) {
+		  pubSubManager.log("Subscriber in main receive topic: /main/button")
 	  }) 
-	  communicationManager.subscribe("/left/button", function(data) {
-		  communicationManager.log("Subscriber in main receive topic: /left/button")
+	  pubSubManager.subscribe("/left/button", function(data) {
+		  pubSubManager.log("Subscriber in main receive topic: /left/button")
 	  }) 
-	  communicationManager.subscribe("/left/Publish", function(data) {
-		  communicationManager.log("Subscriber in main receive topic: /left/Publish")
+	  pubSubManager.subscribe("/left/Publish", function(data) {
+		  pubSubManager.log("Subscriber in main receive topic: /left/Publish")
 	  }) 
   }
-  
+  componentDidMount() {
+	  pubSubManager.setLog("log");
+  }
   render() {
     return (
       <div className="App">
@@ -27,7 +29,8 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to Coolshare React Pubsub</h2>
         </div>
-
+        	<p>This page shows how components communicate with pub/sub. There are 4 components on this page: "Main", "Left", "Right" and "Right" in "Left". You can try to click the buttons or mouseover the link to see the result below.
+        	</p>
           <Left/>
           <Right/>
 

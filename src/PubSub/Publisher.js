@@ -28,9 +28,9 @@ OTHER DEALINGS IN THE SOFTWARE.
 */
 import React from 'react';
 import $ from 'jquery'
-import CommunicationManager from './CommunicationManager'
+import PubSubManager from './PubSubManager'
 
-const communicationManager = new CommunicationManager();
+const pubSubManager = new PubSubManager();
 class Publisher extends React.Component {
   constructor(props) {
     super(props);
@@ -56,7 +56,7 @@ class Publisher extends React.Component {
 	  if (this.props.options) {
 		  options = eval("("+this.props.options+")")
 	  }
-	  communicationManager.publish(this.props.topic, options);
+	  pubSubManager.publish(this.props.topic, options);
   }
   
   render() {

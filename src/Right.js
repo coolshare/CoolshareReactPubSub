@@ -1,20 +1,19 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './Right.css';
 import Publisher from './PubSub/Publisher';
-import CommunicationManager from './PubSub/CommunicationManager'
+import PubSubManager from './PubSub/PubSubManager'
 
-const communicationManager = new CommunicationManager();
+const pubSubManager = new PubSubManager();
 class Right extends Component {
   componentWillMount() {
-	  communicationManager.subscribe("/main/button", function(data) {
-		  communicationManager.log("Subscriber in Left receive topic: /main/button and data:"+data)
+	  pubSubManager.subscribe("/main/button", function(data) {
+		  pubSubManager.log("Subscriber in Left receive topic: /main/button and data:"+data)
 	  })
 	  
-	  communicationManager.subscribe("/published/from/right", function(data) {
-		  communicationManager.log("Subscriber in Left receive topic: /published/from/right and data:"+JSON.stringify(data))
+	  pubSubManager.subscribe("/published/from/right", function(data) {
+		  pubSubManager.log("Subscriber in Left receive topic: /published/from/right and data:"+JSON.stringify(data))
 	  }) 
-	  communicationManager.setLog("#log");
+	  
   }
   
   render() {

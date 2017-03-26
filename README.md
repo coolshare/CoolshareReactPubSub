@@ -1,13 +1,24 @@
 Coolshare Pub/Sub for React
 ===========================
 
-By Mark Qian 3/25/2017 (markqian@hotmail.com)
-Go http://MarkQian.com to see more.
+By Mark Qian 3/2017 (markqian@hotmail.com)
 
-The demo page is available at http://coolshare.surge.sh
+The demo page: http://coolshare.surge.sh
+*************
 
-This is a pub/sub package for react.
-It provides the following functionalities:
+Description:
+***********
+This is a pub/sub package for React.
+
+The key features:
+****************
+
+ - You can publish topics from both javascript and JSX
+ - You can specify any event to trigger the publishing
+ 
+
+Instructions to use:
+********************
 
  A). publish a topic in two ways:
  
@@ -15,14 +26,14 @@ It provides the following functionalities:
  	    you need to do the following:
  	    
  	    //Import
- 	    import CommunicationManager from 'CommunicationManager'
+ 	    import PubSubManager from 'PubSubManager'
  	    
  	    //Create an singleton
- 	    const communicationManager = new CommunicationManager();
+ 	    const pubSubManager = new PubSubManager();
  	    
  	    class MyComponent extends Component {
  	    	myHandler() {
-	            communicationManager.publish("/MyTopic1", {"data":{"name":"John"}});
+	            pubSubManager.publish("/MyTopic1", {"data":{"name":"John"}});
 	  		}
 			//...
  	    }
@@ -74,14 +85,14 @@ It provides the following functionalities:
     To subscribe a topic, you need to do the following:
  	    
  	    //Import
- 	    import CommunicationManager from 'CommunicationManager'
+ 	    import PubSubManager from 'PubSubManager'
  	    
  	    //Create an singleton
- 	    const communicationManager = new CommunicationManager();
+ 	    const pubSubManager = new PubSubManager();
  	    
  	    class MyComponent extends Component {
  	    	componentWillMount() {
-	            communicationManager.subscribe("/MyTopic1", function(options) {
+	            pubSubManager.subscribe("/MyTopic1", function(options) {
 	                  //handle the topic here
 	            );
 	  		}
@@ -122,3 +133,4 @@ It provides the following functionalities:
      2). Follow the instructions in A). B). above to use it in your application.
      
      
+Go Mark's home page http://MarkQian.com to see more.
