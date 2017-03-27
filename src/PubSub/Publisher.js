@@ -60,8 +60,8 @@ class Publisher extends React.Component {
 			  if (item==="___VALUE___") {
 				  var $this = $(e.target);
 				  options[i] = $(e.target).val();
-			  } else if (item["___FUNCTION___"]!==undefined) {
-				  options[i] = this.element[item["___FUNCTION___"]]();
+			  } else if (item["___FUNCTION___"]!==undefined && this.props.owner!==undefined) {
+				  options[i] = this.props.owner[item["___FUNCTION___"]]();
 			  }
 		  }
 	  }
@@ -71,7 +71,6 @@ class Publisher extends React.Component {
   render() {
 	  var self = this;
 	  var notFound = false;
-	  self.element = this.props.children._self;
 	  var children = React.Children.map(this.props.children, function (c, index) {		  
 		  var ppp = $.extend({}, c.props);
 		  ppp["on"+self.event] = self.publish;
@@ -86,22 +85,22 @@ class Publisher extends React.Component {
       });
 	  if (notFound) {
 		  var ppp = {};
-		  if (this.props.classes) {
+		  if (self.props.classes) {
 	    	var cn = [];
-	    	for (var c in this.props.classes) {
+	    	for (var c in self.props.classes) {
 	    		cn.push(c);
 	    	}
 	    	ppp.className = cn.join(" ");
 	      }
 
-	      if (this.props.event) {
-	    	ppp["on"+this.props.event] = function() {
-	    		this.publish();
+	      if (self.props.event) {
+	    	ppp["on"+self.props.event] = function() {
+	    		self.publish();
 	    	}
 	      } else {
-	    	ppp["onClick"] = this.publish;
+	    	ppp["onClick"] = self.publish;
 	      }
-		  return <div { ...ppp } >{this.props.children}</div>;
+		  return <div { ...ppp } >{self.props.children}</div>;
 	  } else {
 		  return (
 				  <div>

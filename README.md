@@ -99,9 +99,10 @@ Instructions to use:
 					  return pubSubManager.getRandomColor();
 				  }
 				  render() {
+				    var self = this;
 				    return (				   
 				        ...
-				          <Publisher topic="/inside/function/fg" options="{'color':{'___FUNCTION___':'getColor'}}">
+				          <Publisher topic="/inside/function/fg" owner={self} options="{'color':{'___FUNCTION___':'getColor'}}">
 				              <button>Button in Inside:set text color of subscriber randomly</button>
 				          </Publisher>
  						 ...    
@@ -110,6 +111,8 @@ Instructions to use:
 				}
         
               In the example above, the value of "color" in "options" will be assigned with the return value of "getColor".
+              One requirement to this feature is that you need to pass the owner's (the function's owner) reference to the 
+              attribute "owner".
         
                
   B). subscribe a topic

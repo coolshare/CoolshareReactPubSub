@@ -23,7 +23,7 @@ class Inside extends Component {
         <p className="App-intro">
           This is an instance of component "Inside"
         </p>
-          <Publisher topic="/inside/function/fg" options="{'color':{'___FUNCTION___':'getColor'}}"><button>Button in Inside:set text color of subscriber randomly</button></Publisher>
+          <Publisher topic="/inside/function/fg" owner={self} options="{'color':{'___FUNCTION___':'getColor'}}"><button>Button in Inside:set text color of subscriber randomly</button></Publisher>
       </div>     
     );
   }
