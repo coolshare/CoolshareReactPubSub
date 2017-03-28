@@ -7,10 +7,11 @@ The demo page: http://coolshare.surge.sh
 
 Description:
 
-	Communication among React components could be a pain. Passing reference around the
-	component hierarchy feels like a baby crawling on a 2D surface. Why not fly like a 
-	bird in a 3D space? This is a pub/sub package for React allows you to communicate 
-	between any two or more points in the React Hierarchy.
+	Communication among React components could be a pain. Passing references around the
+	component hierarchy feels like a baby crawling on a 2D surface and is so hard to maintain. 
+	
+	Why not fly like a bird in a 3D space? This is a pub/sub package for React allows you 
+	to communicate between any two or more points in the React Hierarchy.
 
 The key features:
 
