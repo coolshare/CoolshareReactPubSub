@@ -6,7 +6,11 @@ By Mark Qian 3/2017 (markqian@hotmail.com)
 The demo page: http://coolshare.surge.sh
 
 Description:
-	This is a pub/sub package for React.
+
+	Communication amount React components could be a pain. Passing reference around the
+	component hierarchy feels like a baby crawling on a 2D surface. Why not fly like a 
+	bird in a 3D space? This is a pub/sub package for React allows you to communicate 
+	between any two or more points in the React Hierarchy.
 
 The key features:
 
