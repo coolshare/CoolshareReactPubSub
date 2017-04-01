@@ -130,8 +130,8 @@ Instructions to use:
  	    //Create an singleton
  	    const pubSubManager = new PubSubManager();
  	    
- 	    class MyComponent extends Component {
- 	    	constructor (props) {
+		class MyComponent extends Component {
+			constructor (props) {
 				super(props);
 				this.subscriptionMap = {};
 			}
