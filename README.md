@@ -144,7 +144,7 @@ Instructions to use:
 			//...
 			componentWillUnmount() {
 				var topic = "/MyTopic1";
-				pubSubManager.subscribe(topic, this.subscriptionMap[topic]);
+				pubSubManager.unsubscribe(topic, this.subscriptionMap[topic]);
 			}
  	    }
   
