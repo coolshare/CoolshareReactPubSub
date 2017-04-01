@@ -131,12 +131,21 @@ Instructions to use:
  	    const pubSubManager = new PubSubManager();
  	    
  	    class MyComponent extends Component {
+ 	    	constructor (props) {
+				super(props);
+				this.subscriptionMap = {};
+			}
  	    	componentWillMount() {
-	            pubSubManager.subscribe("/MyTopic1", function(options) {
+	            var topic = "/MyTopic1";
+				this.subscriptionMap[topic] = pubSubManager.subscribe(topic, function(options) {
 	                  //handle the topic here
 	            );
 	  		}
 			//...
+			componentWillUnmount() {
+	            var topic = "/MyTopic1";
+				pubSubManager.subscribe(topic, this.subscriptionMap[topic]);
+	  		}
  	    }
   
   C). To run the sample code, you need to 
