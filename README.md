@@ -143,9 +143,9 @@ Instructions to use:
 	  		}
 			//...
 			componentWillUnmount() {
-	            var topic = "/MyTopic1";
+				var topic = "/MyTopic1";
 				pubSubManager.subscribe(topic, this.subscriptionMap[topic]);
-	  		}
+			}
  	    }
   
   C). To run the sample code, you need to 
