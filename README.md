@@ -3,7 +3,7 @@ Coolshare Pub/Sub for React
 
 By Mark Qian 3/2017 (markqian@hotmail.com)
 
-The demo page: http://coolshare.surge.sh
+The demo page: http://reactpubsub.coolshare.surge.sh
 
 Description:
 

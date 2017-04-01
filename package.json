@@ -1,6 +1,6 @@
 {
   "name": "coolshare_react_pub_sub",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "private": false,
   "dependencies": {
     "jquery": "^3.2.1",
@@ -37,5 +37,5 @@
     "type": "git",
     "url": "https://github.com/coolshare/CoolshareReactPubSub.git"
   },
-  "homepage": "https://coolshare.surge.sh"
+  "homepage": "https://reactpubsub.coolshare.surge.sh"
 }
