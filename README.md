@@ -136,10 +136,10 @@ Instructions to use:
 				this.subscriptionMap = {};
 			}
 			componentWillMount() {
-	            var topic = "/MyTopic1";
+				var topic = "/MyTopic1";
 				this.subscriptionMap[topic] = pubSubManager.subscribe(topic, function(options) {
-	                  //handle the topic here
-	            );
+					//handle the topic here
+				});
 	  		}
 			//...
 			componentWillUnmount() {
