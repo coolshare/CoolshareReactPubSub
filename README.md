@@ -166,7 +166,7 @@ Instructions to use:
 		    
 		2). Do installation
 		         
-	       npm install
+			npm install
 		       
 		       
 		3). Start the server and browser by
