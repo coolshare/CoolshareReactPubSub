@@ -149,20 +149,25 @@ Instructions to use:
  	    }
   
   C). To run the sample code, you need to 
-
-		1). download it from 
+ 
+		    
+		0). Prepare required environment
 		
-		    https://github.com/coolshare/CoolshareReactPubSub/archive/master.zip
+		    you need to install node.js
 		    
-		    and unzip it to, say c:\CoolshareReactPubSub
-		    
-		    
-		2). Prepare required environment
+		  
+		1). Download it by
 		
-		    - install node.js
-		    - install required lib by running
-		       cd  c:\CoolshareReactPubSub
-		       npm install
+		    git clone https://github.com/coolshare/CoolshareReactPubSub.git CoolshareReactPubSub
+		    
+		    then 
+		    
+		    cd CoolshareReactPubSub
+		    
+		2). Do installation
+		         
+	       npm install
+		       
 		       
 		3). Start the server and browser by
 		
