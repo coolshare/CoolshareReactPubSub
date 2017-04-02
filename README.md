@@ -154,7 +154,7 @@ Instructions to use:
 		0). Prepare required environment
 		
 		    you need to install node.js
-		    
+		    and git
 		  
 		1). Download it by
 		
