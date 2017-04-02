@@ -43,7 +43,7 @@ Instructions to use:
  	    where the second parameter of the "publish" method is "options" which contains the 
  	    data you like to pass with the topic.
  	    
- 	b). publish from jsx. To publish a topic in jsx, 
+ 	b). publish from jsx (HTML). To publish a topic in jsx (HTML), 
  	    you need to do the following:
  	    
  	    render() {
