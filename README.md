@@ -124,7 +124,7 @@ Instructions to use:
               attribute "owner".
         
                
-  B). subscribe a topic
+  B). subscribe/unsubscribe a topic
   
     To subscribe a topic, you need to do the following:
  	    
