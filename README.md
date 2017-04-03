@@ -24,7 +24,11 @@ Instructions to use:
 
  A). publish a topic in two ways:
  
- 	a). publish from javascript. To publish a topic in javascript, 
+	0). install this package:
+	
+		npm install coolshare_react_pub_sub --save
+ 
+ 	1). publish from javascript. To publish a topic in javascript, 
  	    you need to do the following:
  	    
  	    //Import
@@ -43,7 +47,7 @@ Instructions to use:
  	    where the second parameter of the "publish" method is "options" which contains the 
  	    data you like to pass with the topic.
  	    
- 	b). publish from jsx (HTML). To publish a topic in jsx (HTML), 
+ 	2). publish from jsx (HTML). To publish a topic in jsx (HTML), 
  	    you need to do the following:
  	    
  	    render() {
