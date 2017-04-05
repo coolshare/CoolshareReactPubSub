@@ -37,7 +37,7 @@ Description:
 Who should use this:
 ********************
 
-	 for those who just want to do something quickly with React instead of learning more about
+	 for those who just want to do something quickly with React instead of dealing or learning more on
 	 Redux or Mobx. You need to learn almost nothing for using this package. 
 
 
