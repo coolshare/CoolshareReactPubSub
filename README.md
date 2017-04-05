@@ -23,7 +23,7 @@ Description:
 	 
 	 One key advantage provided by Pub/Sub pattern is the communication: instead of passing references 
 	 around the component hierarchy in order to reach the other party, feels like a baby crawling on a 2D surface,
-	 You can fly like a bird in a 3D space? This is a pub/sub package for React allows you to communicate between 
+	 you can fly like a bird in a 3D space: this is a pub/sub package for React allows you to communicate between 
 	 any two or more points in the React Hierarchy.
 	 
 Who should use this:
