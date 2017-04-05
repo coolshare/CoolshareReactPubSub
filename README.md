@@ -158,9 +158,11 @@ Instructions to use:
 				this.subscriptionMap = {};
 			}
 			componentWillMount() {
+				var self = this;
 				var topic = "/MyTopic1";
 				this.subscriptionMap[topic] = pubSubManager.subscribe(topic, function(options) {
 					//handle the topic here
+					self.setState(...);
 				});
 	  		}
 			//...
