@@ -9,7 +9,7 @@ Description:
 ************
 
 	Communication among React components could be a pain in case you use react without Flux 
-	framework. The approach in this package, may not be the best but is a different/easier 
+	framework. The approach in this package, may not be the best, but is a different/easier 
 	solution.
 	
 	Similar to Redux:
