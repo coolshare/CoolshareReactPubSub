@@ -14,6 +14,8 @@ class Left extends Component {
 	}
 	
 	componentWillMount() {
+		
+		//************* Update without React way using jquery **************************
 		var topic = "/main/button/bg";
 		this.subscriptionMap[topic] = pubSubManager.subscribe(topic, function(options) {
 			pubSubManager.log("Subscriber in Left receive topic: "+topic+" and data:"+ JSON.stringify(options))
