@@ -10,8 +10,10 @@ Description:
 	Communication among React components could be a pain in case you use react without Flux 
 	framework. Pub/Sub, may not be the best but is a different solution similar to Redux:
 	
-	 - publish in PubsubManager and Pulisher component are "Action Creator"
-	 - An event including a topicName with data is an "Action"
+	 - both publish method in PubsubManager and Pulisher component act like the "Action Creator",
+	   where publish method allows API or event handler to generate "Actions" and the Publish component
+	   generate "Actions" from user interaction. 
+	 - An event (including a topicName with data) is an "Action"
 	 - PubsubManager is the "Dispatcher" and topicName is the "Action Type"
 	 - Event handler is the "Reducer". In case of React, the event handler makes change to
 	   the state of React view to trigger the view update.
