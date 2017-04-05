@@ -1,4 +1,4 @@
-Coolshare Pub/Sub for React
+Coolshare Pub/Sub for React - A different approach other than Flux
 ===========================
 
 By Mark Qian 3/2017 (markqian@hotmail.com)
@@ -30,8 +30,10 @@ Description:
 	 - One key advantage provided by Pub/Sub pattern is the communication: instead of passing references 
 	   around the component hierarchy in order to reach the other party, feels like a baby crawling on 
 	   a 2D surface (since you need to travel the hierarchy node by node), you can fly like a bird in 
-	   a 3D space: this package allows you to communicate between any two or more points in the React 
-	   Hierarchy.
+	   a 3D space: this package allows you to communicate between any two or more points including
+	   any components React Hierarchy and services which in turn update the remote model. And the callback
+	   of remote request then publishes another topic (event/action) to update the state of view
+	   (setView in React).
 	 
 Who should use this:
 ********************
