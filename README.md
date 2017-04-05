@@ -6,10 +6,14 @@ By Mark Qian 3/2017 (markqian@hotmail.com)
 The demo page: http://reactpubsub.coolshare.surge.sh
 
 Description:
+************
 
 	Communication among React components could be a pain in case you use react without Flux 
 	framework. The approach in this package, may not be the best but is a different/easier 
-	solution similar to Redux:
+	solution.
+	
+	Similar to Redux:
+	****************
 	
 	 - both publish method in PubsubManager and Pulisher component act like the "Action Creator",
 	   where publish method allows API or event handler to generate "Actions" and the Publish 
@@ -19,13 +23,16 @@ Description:
 	 - Event handler is the "Reducer". In case of React, the event handler makes change to
 	   the state/model of React view to trigger the view update.
 	 
-	 Some difference from Redux here is that we do not force the event handler to only work on the 
-	 model while it acts as other roles such as an "Action creator" that publish an event.
-	 
-	 One key advantage provided by Pub/Sub pattern is the communication: instead of passing references 
-	 around the component hierarchy in order to reach the other party, feels like a baby crawling on 
-	 a 2D surface, you can fly like a bird in a 3D space: this package allows you to communicate 
-	 between any two or more points in the React Hierarchy.
+	Different from Redux:
+	*********************
+	 - we do not force the event handler to only work on the model while it acts as other roles 
+	   such as an "Action creator" that publish an event.
+	 - you need to learn almost nothing to use it
+	 - One key advantage provided by Pub/Sub pattern is the communication: instead of passing references 
+	   around the component hierarchy in order to reach the other party, feels like a baby crawling on 
+	   a 2D surface (since you need to travel the hierarchy node by node), you can fly like a bird in 
+	   a 3D space: this package allows you to communicate between any two or more points in the React 
+	   Hierarchy.
 	 
 Who should use this:
 ********************
