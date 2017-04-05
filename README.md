@@ -163,7 +163,7 @@ Instructions to use:
 				var self = this;
 				var topic = "/MyTopic1";
 				this.subscriptionMap[topic] = pubSubManager.subscribe(topic, function(options) {
-					//handle the topic here
+					//handle the topic here: make modification to the model and trigger the view update
 					self.setState(...);
 					
 					//...
