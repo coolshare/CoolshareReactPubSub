@@ -58,7 +58,7 @@ Instructions to use:
  	    const pubSubManager = new PubSubManager();
  	    
  	    class MyComponent extends Component {
- 	    	myHandler() {
+ 	    	handleRemoteAPIResponse() {
 	            pubSubManager.publish("/MyTopic1", {"data":{"name":"John"}});
 	  		}
 			//...
@@ -165,6 +165,12 @@ Instructions to use:
 				this.subscriptionMap[topic] = pubSubManager.subscribe(topic, function(options) {
 					//handle the topic here
 					self.setState(...);
+					
+					//...
+					
+					//Or generate another "Action"
+					pubSubManager.publish("/MyTopicX", {"data":{"address":"123 Main St"}});
+					
 				});
 	  		}
 			//...
