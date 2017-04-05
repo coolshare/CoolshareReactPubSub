@@ -1,4 +1,4 @@
-Coolshare Pub/Sub for React - A different approach other than Flux
+Coolshare Pub/Sub for React - An approach different from Flux
 ===========================
 
 By Mark Qian 3/2017 (markqian@hotmail.com)
