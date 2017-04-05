@@ -15,9 +15,9 @@ Description:
 	   where publish method allows API or event handler to generate "Actions" and the Publish 
 	   component generate "Actions" from user interaction. 
 	 - An event (including a topicName with data) is an "Action"
-	 - PubsubManager is the "Dispatcher" and topicName is the "Action Type"
+	 - PubsubManager is the "Dispatcher" and topicName is the type of "Action"
 	 - Event handler is the "Reducer". In case of React, the event handler makes change to
-	   the state of React view to trigger the view update.
+	   the state/model of React view to trigger the view update.
 	 
 	 Some difference from Redux here is that we do not force the event handler to only work on the 
 	 model while it acts as other roles such as an "Action creator" that publish an event.
