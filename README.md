@@ -11,6 +11,7 @@ Description:
 	framework. Pub/Sub is a different solution similar to Redux:
 	
 	 - publish in PubsubManager and Pulisher component are "Action Creator"
+	 - An event including a topic with data is an "Action"
 	 - PubsubManager is the "Dispatcher" and topic is the "Action Type"
 	 - Event handler is the "Reducer" 
 	 
