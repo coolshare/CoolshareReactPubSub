@@ -13,7 +13,7 @@ Description:
 	 - publish in PubsubManager and Pulisher component are "Action Creator"
 	 - An event including a topicName with data is an "Action"
 	 - PubsubManager is the "Dispatcher" and topicName is the "Action Type"
-	 - Event handler is the "Reducer". In case of React, the event handler make change to
+	 - Event handler is the "Reducer". In case of React, the event handler makes change to
 	   the state of React view to trigger the view update.
 	 
 	 Some difference here is that we do not force the event handler to only work on the model while
