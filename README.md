@@ -152,9 +152,11 @@ Instructions to use:
 			}
  	    }
   
-  C). This example uses only React without using any Flux framework. See my other example for Redux at ttp://https://github.com/coolshare/CoolshareReactPubSubRedux 
+  C). This example uses only React without using any Flux framework. See my other example for 
+  
+  Redux at ttp://https://github.com/coolshare/CoolshareReactPubSubRedux 
 
-and for Mobx at http://https://github.com/coolshare/CoolshareReactPubSubMobx
+  and for Mobx at http://https://github.com/coolshare/CoolshareReactPubSubMobx
   	  
   		
   		
