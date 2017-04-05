@@ -8,18 +8,32 @@ import PubSubManager from './PubSub/PubSubManager'
 
 const pubSubManager = new PubSubManager();
 class Left extends Component {
-  componentWillMount() {
-	  pubSubManager.subscribe("/main/button/bg", function(options) {
-		  pubSubManager.log("Subscriber in Left receive topic: /main/button/bg and data:"+ JSON.stringify(options))
-		  $(".Left").css({"background-color":options.bgColor});
-	  }) 
-	  pubSubManager.subscribe("/right/button/fg", function(options) {
-		  
-		  pubSubManager.log("Subscriber in Left receive topic: /right/button/fg and data:"+JSON.stringify(options))
-		  $(".Left").css({"color":options.color});
-		  pubSubManager.publish("/published/from/right", options);
-	  }) 
-  }
+	constructor (props) {
+		super(props);
+		this.subscriptionMap = {};
+	}
+	
+	componentWillMount() {
+		var topic = "/main/button/bg";
+		this.subscriptionMap[topic] = pubSubManager.subscribe(topic, function(options) {
+			pubSubManager.log("Subscriber in Left receive topic: "+topic+" and data:"+ JSON.stringify(options))
+			$(".Left").css({"background-color":options.bgColor});
+		}) 
+		
+		topic = "/right/button/fg";
+		this.subscriptionMap[topic] = pubSubManager.subscribe(topic, function(options) {
+			pubSubManager.log("Subscriber in Left receive topic: "+topic+" and data:"+JSON.stringify(options))
+			$(".Left").css({"color":options.color});
+			pubSubManager.publish("/published/from/right", options);
+		}) 
+	}
+	componentWillUnmount() {
+		var topic = "/main/button/bg";
+		pubSubManager.unsubscribe(topic, this.subscriptionMap[topic]);
+		
+		topic = "/right/button/fg";
+		pubSubManager.unsubscribe(topic, this.subscriptionMap[topic]);
+	}
   
   render() {
     return (

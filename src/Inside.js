@@ -6,13 +6,22 @@ import PubSubManager from './PubSub/PubSubManager'
 
 const pubSubManager = new PubSubManager();
 class Inside extends Component {
-  componentWillMount() {
-
-	  pubSubManager.subscribe("/published/from/inside", function(data) {
-		  pubSubManager.log("Subscriber in Inside receive topic: /published/from/right and data:"+JSON.stringify(data))
+	constructor (props) {
+		super(props);
+		this.subscriptionMap = {};
+	}
+	componentWillMount() {
+		var topic = "/published/from/inside";
+		this.subscriptionMap[topic] = pubSubManager.subscribe(topic, function(data) {
+		  pubSubManager.log("Subscriber in Inside receive topic: "+topic+" and data:"+JSON.stringify(data))
 	  }) 
 	  
-  }
+	}
+	componentWillUnmount() {
+		var topic = "/published/from/inside";
+		pubSubManager.unsubscribe(topic, this.subscriptionMap[topic]);
+	}
+	
   getColor() {
 	  return pubSubManager.getRandomColor();
   }

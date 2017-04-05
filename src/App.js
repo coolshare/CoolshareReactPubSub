@@ -9,17 +9,24 @@ import PubSubManager from './PubSub/PubSubManager'
 
 const pubSubManager = new PubSubManager();
 class App extends Component {
-  componentWillMount() {
-
-	  
-	  
-	  pubSubManager.subscribe("/left/Publish", function(options) {
-		  pubSubManager.log("Subscriber in main receive topic: /left/Publish")
-	  }) 
-  }
-  componentDidMount() {
-	  pubSubManager.setLog("log");
-  }
+	constructor (props) {
+		super(props);
+		this.subscriptionMap = {};
+	}
+	
+	componentWillMount() {
+		var topic = "/left/Publish";
+		this.subscriptionMap[topic] = pubSubManager.subscribe(topic, function(options) {
+			pubSubManager.log("Subscriber in main receive topic: "+topic)
+		}) 
+	}
+	componentWillUnmount() {
+		var topic = "/left/Publish";
+		pubSubManager.unsubscribe(topic, this.subscriptionMap[topic]);
+	}
+	componentDidMount() {
+		pubSubManager.setLog("log");
+	}
   
   render() {
 	var self = this;
@@ -42,6 +49,9 @@ class App extends Component {
 	          </div>
 	      </div>
           <Publisher topic="/main/button/bg" options="{'bgColor':'#e3e4e1'}"><button>Button in Main: change subscriber's bg color</button></Publisher>
+          <br/>
+          <br/>
+          <a href="http://MarkQian.com" target="_blank">Go Mark's Home page to see more!</a>
       </div>
      
     );
