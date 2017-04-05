@@ -152,7 +152,14 @@ Instructions to use:
 			}
  	    }
   
-  C). To run the sample code, you need to 
+  C). This example uses only React without using any Flux framework. See my other example for Redux and Mobx at
+  
+  	  http://https://github.com/coolshare/CoolshareReactPubSubRedux
+  	  http://https://github.com/coolshare/CoolshareReactPubSubMobx
+  	  
+  		
+  		
+      To run the sample code, you need to 
  
 		    
 		0). Prepare required environment
