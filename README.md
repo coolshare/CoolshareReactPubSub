@@ -9,9 +9,8 @@ Description:
 ************
 
 	Communication among React components could be a pain in case you use react without Flux 
-	framework. The approach in this package, may not be the best, but is a different/easier 
-	solution.
-	
+	framework. Comparing to Flux, this package is a different/easier. 
+
 	Similar to Redux:
 	****************	
 	 - both publish method in PubsubManager and Pulisher component act like the "Action Creator",
