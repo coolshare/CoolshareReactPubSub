@@ -13,8 +13,7 @@ Description:
 	solution.
 	
 	Similar to Redux:
-	****************
-	
+	****************	
 	 - both publish method in PubsubManager and Pulisher component act like the "Action Creator",
 	   where publish method allows API or event handler to generate "Actions" and the Publish 
 	   component generate "Actions" from user interaction. 
