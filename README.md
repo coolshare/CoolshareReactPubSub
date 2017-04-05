@@ -8,11 +8,14 @@ The demo page: http://reactpubsub.coolshare.surge.sh
 Description:
 
 	Communication among React components could be a pain in case you use react without Flux 
-	framework like Redux or Mobx. Passing references around the
-	component hierarchy feels like a baby crawling on a 2D surface and is so hard to maintain. 
+	framework. Pub/Sub is a different solution similar to Redux:
 	
-	Why not fly like a bird in a 3D space? This is a pub/sub package for React allows you 
-	to communicate between any two or more points in the React Hierarchy.
+	 - publish in PubsubManager and Pulisher component are "Action Creator"
+	 - PubsubManager is the "Dispatcher" and topic is the "Action Type"
+	 - Event handler is the "Reducer" 
+	 
+	 Some difference here is that we do not force the event handler to only work on the model while
+	 it acts as other roles such as an "Action creator" that publish an event.
 
 The key features:
 
