@@ -11,8 +11,8 @@ Description:
 	framework. Pub/Sub, may not be the best but is a different solution similar to Redux:
 	
 	 - both publish method in PubsubManager and Pulisher component act like the "Action Creator",
-	   where publish method allows API or event handler to generate "Actions" and the Publish component
-	   generate "Actions" from user interaction. 
+	   where publish method allows API or event handler to generate "Actions" and the Publish 
+	   component generate "Actions" from user interaction. 
 	 - An event (including a topicName with data) is an "Action"
 	 - PubsubManager is the "Dispatcher" and topicName is the "Action Type"
 	 - Event handler is the "Reducer". In case of React, the event handler makes change to
@@ -22,9 +22,9 @@ Description:
 	 it acts as other roles such as an "Action creator" that publish an event.
 	 
 	 One key advantage provided by Pub/Sub pattern is the communication: instead of passing references 
-	 around the component hierarchy in order to reach the other party, feels like a baby crawling on a 2D surface,
-	 you can fly like a bird in a 3D space: this is a pub/sub package for React allows you to communicate between 
-	 any two or more points in the React Hierarchy.
+	 around the component hierarchy in order to reach the other party, feels like a baby crawling on 
+	 a 2D surface, you can fly like a bird in a 3D space: this package allows you to communicate 
+	 between any two or more points in the React Hierarchy.
 	 
 Who should use this:
 ********************
