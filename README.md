@@ -7,7 +7,8 @@ The demo page: http://reactpubsub.coolshare.surge.sh
 
 Description:
 
-	Communication among React components could be a pain. Passing references around the
+	Communication among React components could be a pain in case you use react without Flux 
+	framework like Redux or Mobx. Passing references around the
 	component hierarchy feels like a baby crawling on a 2D surface and is so hard to maintain. 
 	
 	Why not fly like a bird in a 3D space? This is a pub/sub package for React allows you 
@@ -152,15 +153,7 @@ Instructions to use:
 			}
  	    }
   
-  C). This example uses only React without using any Flux framework. See my other example for 
-  
-  Redux at ttp://https://github.com/coolshare/CoolshareReactPubSubRedux 
-
-  and for Mobx at http://https://github.com/coolshare/CoolshareReactPubSubMobx
-  	  
-  		
-  		
-      To run the sample code, you need to 
+  C). To run the sample code, you need to 
  
 		    
 		0). Prepare required environment
