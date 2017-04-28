@@ -30,7 +30,6 @@ import React from 'react';
 import $ from 'jquery'
 import PubSubManager from './PubSubManager'
 
-const pubSubManager = new PubSubManager();
 class Publisher extends React.Component {
   constructor(props) {
     super(props);
@@ -65,7 +64,7 @@ class Publisher extends React.Component {
 			  }
 		  }
 	  }
-	  pubSubManager.publish(this.props.topic, options);
+	  PubSubManager.publish(this.props.topic, options);
   }
   
   render() {

@@ -62,12 +62,9 @@ Instructions to use:
  	    //Import
  	    import PubSubManager from 'PubSubManager'
  	    
- 	    //Create an singleton
- 	    const pubSubManager = new PubSubManager();
- 	    
  	    class MyComponent extends Component {
  	    	handleRemoteAPIResponse() {
-	            pubSubManager.publish("/MyTopic1", {"data":{"name":"John"}});
+	            PubSubManager.publish("/MyTopic1", {"data":{"name":"John"}});
 	  		}
 			//...
  	    }
@@ -159,9 +156,6 @@ Instructions to use:
  	    //Import
  	    import PubSubManager from 'PubSubManager'
  	    
- 	    //Create an singleton
- 	    const pubSubManager = new PubSubManager();
- 	    
 		class MyComponent extends Component {
 			constructor (props) {
 				super(props);
@@ -177,14 +171,14 @@ Instructions to use:
 					//...
 					
 					//Or generate another "Action"
-					pubSubManager.publish("/MyTopicX", {"data":{"address":"123 Main St"}});
+					PubSubManager.publish("/MyTopicX", {"data":{"address":"123 Main St"}});
 					
 				});
 	  		}
 			//...
 			componentWillUnmount() {
 				var topic = "/MyTopic1";
-				pubSubManager.unsubscribe(topic, this.subscriptionMap[topic]);
+				PubSubManager.unsubscribe(topic, this.subscriptionMap[topic]);
 			}
  	    }
   
@@ -198,6 +192,8 @@ Instructions to use:
 		  
 		1). Download it by
 		
+		    cd c:\
+		    
 		    git clone https://github.com/coolshare/CoolshareReactPubSub.git CoolshareReactPubSub
 		    
 		    then 
@@ -222,7 +218,7 @@ Instructions to use:
 
   D). To install it into your React application, you need to 
   
-     1). npm install coolshare_react_pub_sub --save
+     1). npm install --save coolshare_react_pub_sub_kit
      
      2). Follow the instructions in A). B). above to use it in your application.
      

@@ -4,7 +4,6 @@ import './Right.css';
 import Publisher from './PubSub/Publisher';
 import PubSubManager from './PubSub/PubSubManager'
 
-const pubSubManager = new PubSubManager();
 class Inside extends Component {
 	constructor (props) {
 		super(props);
@@ -12,18 +11,18 @@ class Inside extends Component {
 	}
 	componentWillMount() {
 		var topic = "/published/from/inside";
-		this.subscriptionMap[topic] = pubSubManager.subscribe(topic, function(data) {
-		  pubSubManager.log("Subscriber in Inside receive topic: "+topic+" and data:"+JSON.stringify(data))
+		this.subscriptionMap[topic] = PubSubManager.subscribe(topic, function(data) {
+		  PubSubManager.log("Subscriber in Inside receive topic: "+topic+" and data:"+JSON.stringify(data))
 	  }) 
 	  
 	}
 	componentWillUnmount() {
 		var topic = "/published/from/inside";
-		pubSubManager.unsubscribe(topic, this.subscriptionMap[topic]);
+		PubSubManager.unsubscribe(topic, this.subscriptionMap[topic]);
 	}
 	
   getColor() {
-	  return pubSubManager.getRandomColor();
+	  return PubSubManager.getRandomColor();
   }
   render() {
 	var self = this;

@@ -6,7 +6,6 @@ import Right from './Right'
 import Inside from './Inside'
 import PubSubManager from './PubSub/PubSubManager'
 
-const pubSubManager = new PubSubManager();
 class Left extends Component {
 	constructor (props) {
 		super(props);
@@ -17,24 +16,24 @@ class Left extends Component {
 		
 		//************* Update without React way using jquery **************************
 		var topic = "/main/button/bg";
-		this.subscriptionMap[topic] = pubSubManager.subscribe(topic, function(options) {
-			pubSubManager.log("Subscriber in Left receive topic: "+topic+" and data:"+ JSON.stringify(options))
+		this.subscriptionMap[topic] = PubSubManager.subscribe(topic, function(options) {
+			PubSubManager.log("Subscriber in Left receive topic: "+topic+" and data:"+ JSON.stringify(options))
 			$(".Left").css({"background-color":options.bgColor});
 		}) 
 		
 		topic = "/right/button/fg";
-		this.subscriptionMap[topic] = pubSubManager.subscribe(topic, function(options) {
-			pubSubManager.log("Subscriber in Left receive topic: "+topic+" and data:"+JSON.stringify(options))
+		this.subscriptionMap[topic] = PubSubManager.subscribe(topic, function(options) {
+			PubSubManager.log("Subscriber in Left receive topic: "+topic+" and data:"+JSON.stringify(options))
 			$(".Left").css({"color":options.color});
-			pubSubManager.publish("/published/from/right", options);
+			PubSubManager.publish("/published/from/right", options);
 		}) 
 	}
 	componentWillUnmount() {
 		var topic = "/main/button/bg";
-		pubSubManager.unsubscribe(topic, this.subscriptionMap[topic]);
+		PubSubManager.unsubscribe(topic, this.subscriptionMap[topic]);
 		
 		topic = "/right/button/fg";
-		pubSubManager.unsubscribe(topic, this.subscriptionMap[topic]);
+		PubSubManager.unsubscribe(topic, this.subscriptionMap[topic]);
 	}
   
   render() {

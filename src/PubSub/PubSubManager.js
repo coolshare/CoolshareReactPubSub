@@ -28,7 +28,6 @@ OTHER DEALINGS IN THE SOFTWARE.
 */
 
 import $ from 'jquery'
-let instance = null;
 
 /*class Pub {
 	constructor(topicName, options) {
@@ -64,15 +63,10 @@ class Topic {
 }
 
 
-class PubSubManager {
+class _PubSubManager {
 	constructor () {
-		if(!instance){
-            instance = this;
-        }
 		this.topicMap = {};
 		this.handlerMap = {};
-		
-		return instance;
 	}
 	subscribe(topicNameList, options) {
 		options = options || {};
@@ -90,9 +84,9 @@ class PubSubManager {
 		}
 		for (var i=0; i<topicNameList.length; i++) {
 			var tn = topicNameList[i];
-			var topic = pubSubManager.topicMap[tn];
+			var topic = PubSubManager.topicMap[tn];
 			if (topic == null) {
-				topic = pubSubManager.topicMap[tn] = new Topic(tn);
+				topic = PubSubManager.topicMap[tn] = new Topic(tn);
 			}
 			if (options.id === undefined || options.id === "") {
 				options.id = this.getId("ID_");
@@ -116,7 +110,7 @@ class PubSubManager {
 		//if (topicName=="/applicationService/loadApplications") {
 		//	debugger
 		//}
-		var topic = pubSubManager.topicMap[topicName];
+		var topic = PubSubManager.topicMap[topicName];
 		
 		//if (debug>0 && topicName.indexOf("/debug")<0) {
 		//	debugInfo.addEvent(topicName, options);	
@@ -125,7 +119,7 @@ class PubSubManager {
 		
 		if (topic === undefined) {
 			
-			pubSubManager.topicMap[topicName] = new Topic(
+			PubSubManager.topicMap[topicName] = new Topic(
 					topicName);
 			
 			this.log("######WARNING######: there is no subscriber on topic '"+topicName+"'");
@@ -158,7 +152,7 @@ class PubSubManager {
 				sub.callback.apply(target, [ options ]);
 				
 			} else if (sub.ownerType === "handlerMap") {
-				var item = pubSubManager.handlerMap[sub.owner];
+				var item = PubSubManager.handlerMap[sub.owner];
 				item.method.apply(item.owner, options);
 			} else {
 				//console.log("  invoke sub: id=" + sub.id + " owner="
@@ -226,5 +220,5 @@ class PubSubManager {
 	}
 }
 
-const pubSubManager = new PubSubManager()
+const PubSubManager = new _PubSubManager()
 export default PubSubManager;

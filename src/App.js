@@ -7,7 +7,6 @@ import Right from './Right';
 import Publisher from './PubSub/Publisher';
 import PubSubManager from './PubSub/PubSubManager'
 
-const pubSubManager = new PubSubManager();
 class App extends Component {
 	constructor (props) {
 		super(props);
@@ -16,16 +15,16 @@ class App extends Component {
 	
 	componentWillMount() {
 		var topic = "/left/Publish";
-		this.subscriptionMap[topic] = pubSubManager.subscribe(topic, function(options) {
-			pubSubManager.log("Subscriber in main receive topic: "+topic)
+		this.subscriptionMap[topic] = PubSubManager.subscribe(topic, function(options) {
+			PubSubManager.log("Subscriber in main receive topic: "+topic)
 		}) 
 	}
 	componentWillUnmount() {
 		var topic = "/left/Publish";
-		pubSubManager.unsubscribe(topic, this.subscriptionMap[topic]);
+		PubSubManager.unsubscribe(topic, this.subscriptionMap[topic]);
 	}
 	componentDidMount() {
-		pubSubManager.setLog("log");
+		PubSubManager.setLog("log");
 	}
   
   render() {
