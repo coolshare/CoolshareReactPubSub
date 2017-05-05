@@ -153,34 +153,45 @@ Instructions to use:
   
     To subscribe a topic, you need to do the following:
  	    
- 	    //Import
- 	    import PubSubManager from 'PubSubManager'
- 	    
-		class MyComponent extends Component {
-			constructor (props) {
-				super(props);
-				this.subscriptionMap = {};
-			}
-			componentWillMount() {
-				var self = this;
-				var topic = "/MyTopic1";
-				this.subscriptionMap[topic] = pubSubManager.subscribe(topic, function(options) {
-					//handle the topic here: make modification to the model and trigger the view update
-					self.setState(...);
-					
-					//...
-					
-					//Or generate another "Action"
-					PubSubManager.publish("/MyTopicX", {"data":{"address":"123 Main St"}});
-					
-				});
-	  		}
-			//...
-			componentWillUnmount() {
-				var topic = "/MyTopic1";
-				PubSubManager.unsubscribe(topic, this.subscriptionMap[topic]);
-			}
- 	    }
+ 	    1). from javascript
+	 	    //Import
+	 	    import PubSubManager from 'PubSubManager'
+	 	    
+			class MyComponent extends Component {
+				constructor (props) {
+					super(props);
+					this.subscriptionMap = {};
+				}
+				componentWillMount() {
+					var self = this;
+					var topic = "/MyTopic1";
+					this.subscriptionMap[topic] = pubSubManager.subscribe(topic, function(options) {
+						//handle the topic here: make modification to the model and trigger the view update
+						self.setState(...);
+						
+						//...
+						
+						//Or generate another "Action"
+						PubSubManager.publish("/MyTopicX", {"data":{"address":"123 Main St"}});
+						
+					});
+		  		}
+				//...
+				componentWillUnmount() {
+					var topic = "/MyTopic1";
+					PubSubManager.unsubscribe(topic, this.subscriptionMap[topic]);
+				}
+	 	    }
+	 	    
+	 2). from JSX(HTML)
+	 		//Import
+	 	    import Subscriber from './PubSub/Subscriber';
+	 	    
+	 	    <Subscriber topic="/right/text" field="innerHTML" optionField="text"><p/></Subscriber>
+	 	    
+	 	    where attribute "field" specify what field of wrapped element (<p/>) to make change. 
+	 	    Attribute "optionField" specify what field in the data receive to use.  
+	
   
   C). To run the sample code, you need to 
  
